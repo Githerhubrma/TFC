@@ -1,8 +1,14 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/tfc", "destination": "/tfc.html" },
-    { "source": "/open", "destination": "/open.html" },
-    { "source": "/jeu", "destination": "/project/dist/index.html" }
+  "builds": [
+    {
+      "src": "project/package.json",  // Indique à Vercel de prendre le package.json dans le dossier project
+      "use": "@vercel/node"           // Utilise le build pour une application Node.js (qui exécute npm install)
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/project/build/$1"   // Redirige toutes les requêtes vers le build React
+    }
   ]
 }
