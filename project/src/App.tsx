@@ -705,7 +705,7 @@ function App() {
                     top: obstacle.y - 60,
                     width: 60,
                     height: 60,
-                    backgroundImage: 'url("../coin.png")',
+                    backgroundImage: 'url("https://i.imgur.com/IzIRcsl_d.webp?maxwidth=760&fidelity=grand")',
                     backgroundSize: 'contain',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
