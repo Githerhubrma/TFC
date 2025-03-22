@@ -1,17 +1,1 @@
-{
-  "builds": [
-    {
-      "src": "project/package.json",  // Indique le chemin vers package.json de ton projet React
-      "use": "@vercel/static-build",  // Utilise @vercel/static-build pour la construction de l'app React
-      "config": {
-        "distDir": "project/build"    // Le dossier de sortie du build de React
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"  // Redirige toutes les requêtes vers index.html à la racine
-    }
-  ]
-}
+
