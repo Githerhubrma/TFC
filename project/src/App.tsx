@@ -118,15 +118,34 @@ function App() {
     }
   }, [knight, obstacles]);
 
-  const handleKeyPress = useCallback((e: KeyboardEvent) => {
-    if (e.code === 'Space' || e.code === 'ArrowUp') {
-      if (knightEntrance) {
-        setKnightEntrance(false);
-      } else {
-        jump();
-      }
+  const handleInteraction = useCallback((e: Event) => {
+    e.preventDefault();
+    if (knightEntrance) {
+      setKnightEntrance(false);
+    } else {
+      jump();
     }
   }, [jump, knightEntrance]);
+
+  const handleKeyPress = useCallback((e: KeyboardEvent) => {
+    if (e.code === 'Space' || e.code === 'ArrowUp') {
+      handleInteraction(e);
+    }
+  }, [handleInteraction]);
+
+  useEffect(() => {
+    if (gameStarted) {
+      window.addEventListener('keydown', handleKeyPress);
+      window.addEventListener('mousedown', handleInteraction);
+      window.addEventListener('touchstart', handleInteraction);
+
+      return () => {
+        window.removeEventListener('keydown', handleKeyPress);
+        window.removeEventListener('mousedown', handleInteraction);
+        window.removeEventListener('touchstart', handleInteraction);
+      };
+    }
+  }, [gameStarted, handleKeyPress, handleInteraction]);
 
   useEffect(() => {
     if (gameOver) {
@@ -350,13 +369,10 @@ function App() {
       }
     }, 1000 / 60);
 
-    window.addEventListener('keydown', handleKeyPress);
-
     return () => {
       clearInterval(gameLoop);
-      window.removeEventListener('keydown', handleKeyPress);
     };
-  }, [gameStarted, velocity, knight, obstacles, handleKeyPress, meters, gameOver, nextTowerX, jump, knightEntrance, isSpeedBoostActive, gameSpeed, isResurrecting, eagles]);
+  }, [gameStarted, velocity, knight, obstacles, meters, gameOver, nextTowerX, jump, knightEntrance, isSpeedBoostActive, gameSpeed, isResurrecting, eagles]);
 
   const showError = (message: string) => {
     errorSound.currentTime = 0;
@@ -445,8 +461,7 @@ function App() {
 
   return (
     <div className="h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center relative overflow-hidden">
-
-<div className="absolute inset-0 bg-[url('https://i.imgur.com/JokPe6U_d.webp?maxwidth=760&fidelity=grand')] bg-cover bg-center opacity-20" />
+      <div className="absolute inset-0 bg-[url('https://i.imgur.com/JokPe6U_d.webp?maxwidth=760&fidelity=grand')] bg-cover bg-center opacity-20" />
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full bg-[url('https://images.unsplash.com/photo-1578662996442-48f60103fc96')] bg-cover opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-black/70" />
@@ -523,6 +538,8 @@ function App() {
               <div className="text-gray-300 space-y-1 text-left text-sm">
                 <p className="flex items-center gap-2">
                   <span className="bg-red-900/50 px-2 py-0.5 rounded text-xs">ESPACE</span>
+                  ou
+                  <span className="bg-red-900/50 px-2 py-0.5 rounded text-xs">CLIC</span>
                   pour sauter
                 </p>
                 <p className="flex items-center gap-2">
@@ -571,7 +588,11 @@ function App() {
           )}
         </div>
       ) : (
-        <div className="relative w-[800px] h-[400px] rounded-lg overflow-hidden transition-all duration-1000 bg-gradient-to-b from-[#87CEEB] to-[#1E90FF]">
+        <div 
+          className="relative w-[800px] h-[400px] rounded-lg overflow-hidden transition-all duration-1000 bg-gradient-to-b from-[#87CEEB] to-[#1E90FF] cursor-pointer"
+          onClick={handleInteraction}
+          onTouchStart={handleInteraction}
+        >
           <div 
             className="absolute w-20 h-20 rounded-full bg-yellow-300 shadow-lg transition-all duration-300"
             style={{
@@ -674,7 +695,7 @@ function App() {
 
           {knightEntrance && (
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-bold animate-bounce">
-              Appuyez sur ESPACE pour commencer
+              Appuyez sur ESPACE ou cliquez pour commencer
             </div>
           )}
 
