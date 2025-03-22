@@ -615,7 +615,7 @@ function App() {
                 top: bird.y,
                 width: 40,
                 height: 40,
-                backgroundImage: 'url("../coin.png")',
+                backgroundImage: 'url("https://i.imgur.com/IzIRcsl_d.webp?maxwidth=760&fidelity=grand")',
                 backgroundSize: 'contain',
                 backgroundRepeat: 'no-repeat',
                 transform: `scale(${bird.scale}) scaleX(${bird.direction})`,
