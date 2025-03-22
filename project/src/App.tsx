@@ -446,7 +446,7 @@ function App() {
   return (
     <div className="h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center relative overflow-hidden">
 
-<div className="absolute inset-0 bg-[url('back.jpg')] bg-cover bg-center opacity-20" />
+<div className="absolute inset-0 bg-[url('https://i.imgur.com/JokPe6U_d.webp?maxwidth=760&fidelity=grand')] bg-cover bg-center opacity-20" />
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute w-full h-full bg-[url('https://images.unsplash.com/photo-1578662996442-48f60103fc96')] bg-cover opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-black/70" />
@@ -456,8 +456,8 @@ function App() {
         <div className="relative text-center panel-medieval p-8 rounded-2xl max-w-2xl w-full mx-4 transform hover:scale-[1.02] transition-all duration-300">
           <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
             <img 
-              src="../coin.png" 
-              alt="Solana Logo" 
+              src="https://i.imgur.com/IzIRcsl_d.webp?maxwidth=760&fidelity=grand" 
+              alt="TFC coin" 
               className="w-16 h-16 animate-pulse"
             />
           </div>
