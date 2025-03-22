@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/tfc", "destination": "/tfc.html" },
+    { "source": "/open", "destination": "/open.html" },
+    { "source": "/jeu", "destination": "/project/dist/index.html" }
+  ]
+}
