@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFC</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="shortcut icon" href=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Map</a>
+        <div class="nav-links">
+            <ul>
+                <a href="https://tfc-am.vercel.app" class="flag-link"><img src="img/us-flag.png" alt="English version" class="flag-icon"></a>
+                <li  class="active"><a href="index.html">Map</a></li>
+                <li><a href="tfc.html">TFC</a></li>
+                <li><a href="info.html">Informations</a></li>
+                <li><a href="../project/index.html">Jeu</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu hamburger" class="menu-hamburger">
+    </nav>
+    <div class="navbar-overlay"></div>
+
+
+    <section class="crypto-price-section">
+        <div class="crypto-price-container">
+            <div id="crypto-marketcap">Chargement du market cap...</div>
+        </div>
+    </section>
+
+    <header>
+        <div class="distribution-map">
+            <div class="map">
+                <img id="map-image" src="img/map.png" alt="Carte"/>
+            </div>
+            <div class="map-logo">
+                <img src="img/logo_nofond.PNG" alt="Logo TFC"/>
+            </div>
+        </div>
+    </header>
+
+<div class="conteneur-progression">
+    <div class="titre-progression">Progression du territoire TFC</div>
+    <div class="valeur-actuelle" id="marketcap-actuel">Chargement...</div>
+    
+    <div class="marqueurs-jalons">
+        <div class="jalon" style="left: 0%"><div class="etiquette-jalon">0</div></div>
+        <div class="jalon" style="left: 25%"><div class="etiquette-jalon">250K</div></div>
+        <div class="jalon" style="left: 40%"><div class="etiquette-jalon">400K</div></div>
+        <div class="jalon" style="left: 50%"><div class="etiquette-jalon">500K</div></div>
+        <div class="jalon" style="left: 60%"><div class="etiquette-jalon">600K</div></div>
+        <div class="jalon" style="left: 75%"><div class="etiquette-jalon">750K</div></div>
+        <div class="jalon" style="left: 100%"><div class="etiquette-jalon">1M+</div></div>
+    </div>
+    
+    <div class="cadre-barre-progression">
+        <div class="barre-progression" id="progression-marketcap">
+            <div class="etiquette-actuelle" id="pourcentage-complete">0%</div>
+        </div>
+        <div class="etiquette-cible">Objectif: $1,000,000</div>
+    </div>
+    
+    <div class="info-progression">
+        <div>Début: $0</div>
+        <div id="etape-progression">Étape: 1/18</div>
+        <div>Cible: $1,000,000</div>
+    </div>
+</div>
+
+<div class="banniereMapPage">
+    <img src="img/banniere.jpeg" alt="Bannière TFC" class="banniere">
+</div>
+    <div class="divproMap">
+                <p class="p21">L’objectif est simple : <span class="motMarquant">conquérir le monde entier</span> , alors rejoins nous et aide nous a faire grandir son territoire </p>
+    </div>
+    <div class="divproMap2">
+                <p class="p21">Notre carte interactive est bien plus qu’un simple visuel : c’est le <span class="motMarquant">champ de bataille</span> où The French Conquistor (TFC) étend son empire. Chaque territoire conquis symbolise l’<span class="motMarquant">évolution</span> de notre projet et l’<span class="motMarquant">engagement</span> de notre communauté. </p>
+    </div>
+    <div class="divproMap3">
+                <p class="p21">Un empire ne se construit pas seul. Partage <span class="motMarquant">TFC</span>, invite tes amis et ensemble, faisons <span class="motMarquant">trembler la planète</span> !</p>
+    </div>
+
+
+    <script>
+         const menuHamburger = document.querySelector(".menu-hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuHamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-menu');
+        });
+        async function fetchCryptoData() {
+            const url = 'https://api.dexscreener.com/latest/dex/pairs/solana/';
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const marketCap = parseFloat(data.pair.fdv);
+
+                document.getElementById('crypto-marketcap').innerText = `Marketcap : $${marketCap}`;
+
+                updateMapImage(marketCap);
+                mettreAJourBarreProgression(marketCap);
+            } catch (error) {
+                console.error('Erreur lors de la récupération des données :', error);
+                document.getElementById('crypto-marketcap').innerText = 'Erreur de chargement du market cap';
+            }
+        }
+
+        function updateMapImage(marketCap) {
+            if (marketCap > 1000000){
+                document.getElementById('map-image').src = 'img/map18.png';
+            } else if (marketCap > 970000) {
+                document.getElementById('map-image').src = 'img/map17.png';
+            } else if (marketCap > 937500) {
+                document.getElementById('map-image').src = 'img/map16.png';
+            } else if (marketCap > 875000) {
+                document.getElementById('map-image').src = 'img/map15.png';
+            } else if (marketCap > 812500) {
+                document.getElementById('map-image').src = 'img/map14.png';
+            } else if (marketCap > 750000) {
+                document.getElementById('map-image').src = 'img/map13.png';
+            } else if (marketCap > 687500) {
+                document.getElementById('map-image').src = 'img/map12.png';
+            } else if (marketCap > 625000) {
+                document.getElementById('map-image').src = 'img/map11.png';
+            } else if (marketCap > 562500) {
+                document.getElementById('map-image').src = 'img/map10.png';
+            } else if (marketCap > 500000) {
+                document.getElementById('map-image').src = 'img/map9.png';
+            } else if (marketCap > 398000) {
+                document.getElementById('map-image').src = 'img/map8.png';
+            } else if (marketCap > 344000) {
+                document.getElementById('map-image').src = 'img/map7.png';
+            } else if (marketCap > 290000) {
+                document.getElementById('map-image').src = 'img/map6.png';
+            } else if (marketCap > 236000) {
+                document.getElementById('map-image').src = 'img/map5.png';
+            } else if (marketCap > 182000) {
+                document.getElementById('map-image').src = 'img/map4.png';
+            } else if (marketCap > 128000) {
+                document.getElementById('map-image').src = 'img/map3.png';
+            } else if (marketCap > 74000) {
+                document.getElementById('map-image').src = 'img/map2.png';
+            } else {
+                document.getElementById('map-image').src = 'img/map.png';
+            }
+        }
+
+
+        setInterval(fetchCryptoData, 10000);
+        fetchCryptoData();
+    
+        function mettreAJourBarreProgression(marketCap) {
+
+            const marketCapCible = 1000000;
+            
+            let pourcentage = (marketCap / marketCapCible) * 100;
+            pourcentage = Math.min(pourcentage, 100);
+            
+
+            const barreProgression = document.getElementById('progression-marketcap');
+            barreProgression.style.width = `${pourcentage}%`;
+            
+
+            document.getElementById('pourcentage-complete').innerText = `${pourcentage.toFixed(1)}%`;
+            
+
+            document.getElementById('marketcap-actuel').innerText = `Marketcap: $${marketCap.toLocaleString()}`;
+            
+
+            let etape = 1;
+            if (marketCap > 74000) etape = 2;
+            if (marketCap > 128000) etape = 3;
+            if (marketCap > 182000) etape = 4;
+            if (marketCap > 236000) etape = 5;
+            if (marketCap > 290000) etape = 6;
+            if (marketCap > 344000) etape = 7;
+            if (marketCap > 398000) etape = 8;
+            if (marketCap > 500000) etape = 9;
+            if (marketCap > 562500) etape = 10;
+            if (marketCap > 625000) etape = 11;
+            if (marketCap > 687500) etape = 12;
+            if (marketCap > 750000) etape = 13;
+            if (marketCap > 812500) etape = 14;
+            if (marketCap > 875000) etape = 15;
+            if (marketCap > 937500) etape = 16;
+            if (marketCap > 970000) etape = 17;
+            if (marketCap > 1000000) etape = 18;
+            
+            document.getElementById('etape-progression').innerText = `Étape: ${etape}/18`;
+            
+
+            if (pourcentage < 25) {
+                barreProgression.style.background = 'linear-gradient(90deg, #660000, #990000)';
+            } else if (pourcentage < 50) {
+                barreProgression.style.background = 'linear-gradient(90deg, #990000, #cc0000)';
+            } else if (pourcentage < 75) {
+                barreProgression.style.background = 'linear-gradient(90deg, #cc0000, #ff3333)';
+            } else {
+                barreProgression.style.background = 'linear-gradient(90deg, #ff0000, #ff6666)';
+}
+        }
+
+        setInterval(fetchCryptoData, 10000);
+        fetchCryptoData();
+
+        function setupDiverseScrollAnimations() {
+
+  const elementsToAnimate = document.querySelectorAll(
+    '.distribution-map, .crypto-price-container, .phraseMap, .phraseMap2, .phraseMap3, .conteneur-progression, .social-link, .contact-info, .map, .map-logo, .valeur-actuelle, .cadre-barre-progression, .info-progression'
+  );
+
+
+  const options = {
+    root: null, 
+    rootMargin: '0px',
+    threshold: 0.15 
+  };
+
+
+  const directions = ['top', 'bottom', 'left', 'right'];
+
+ 
+  const handleIntersect = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  };
+
+
+  const observer = new IntersectionObserver(handleIntersect, options);
+
+
+  elementsToAnimate.forEach((element, index) => {
+    let direction;
+    
+
+    if (element.classList.contains('distribution-map') || element.classList.contains('map')) {
+
+    } else if (element.classList.contains('crypto-price-container')) {
+      direction = 'top'; 
+    } else if (element.classList.contains('phraseMap')) {
+      direction = 'right'; 
+      
+    } else if (element.classList.contains('phraseMap2')) {
+    direction = 'left'; 
+
+    } else if (element.classList.contains('phraseMap3')) {
+    direction = 'right';
+
+    } else if (element.classList.contains('conteneur-progression') || 
+               element.classList.contains('cadre-barre-progression')) {
+      direction = 'left';
+    } else if (element.classList.contains('social-link')) {
+
+      direction = index % 2 === 0 ? 'left' : 'right';
+    } else if (element.classList.contains('contact-info')) {
+      direction = 'bottom'; 
+    } else {
+   
+      direction = directions[Math.floor(Math.random() * directions.length)];
+    }
+
+
+    element.classList.add('animate-prepare', `from-${direction}`);
+    
+
+    if (element.classList.contains('social-link')) {
+      element.style.setProperty('--item-index', index % 6);
+    }
+    
+
+    observer.observe(element);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupDiverseScrollAnimations);
+setInterval(fetchCryptoData, 10000);
+fetchCryptoData();
+
+    </script>
+
+</body>
+</html>
+
+
+

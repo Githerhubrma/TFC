@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFC - The French Conquistor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">TFC</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Map</a></li>
+                <li class="active"><a href="tfc.html">TFC</a></li>
+                <li><a href="info.html">Informations</a></li>
+                <li><a href="../project/index.html">Jeu</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="Menu hamburger" class="menu-hamburger">
+    </nav>
+
+
+    <div class="banniere-cont scroll-reveal">
+        <img src="img/banniere.jpeg" alt="Bannière TFC" class="banniere">
+        <div class="overlay"></div>
+        <div class="divpro">
+            <h2 class="h22">The French Conquistor</h2>
+            <p class="p21 scroll-reveal">The French Conquistor (TFC) n'est pas juste un memecoin, c'est une <span class="motMarquant">révolution.</span> Inspiré par l'histoire, forgé <span class="motMarquant">pour la communauté</span>, prêt à conquérir le marché.</p>
+            <p class="p21 scroll-reveal">Né d'une idée simple : allier <span class="motMarquant">l'histoire</span>, <span class="motMarquant">l'humour</span> et la <span class="motMarquant">puissance</span> d'une communauté crypto engagée. Inspiré par les grands conquérants du passé, ce memecoin a été conçu pour repousser les limites, défier le marché et <span class="motMarquant">offrir des récompenses</span> épiques à ceux qui osent embarquer dans l'aventure.</p>
+        </div>
+    </div>
+
+    <div class="banniere-cont scroll-reveal">
+        <img src="img/banniereSuite2.png" alt="Bannière Suite" class="banniere">
+        <div class="overlay"></div>
+        <div class="divpro2">
+            <p class="p21 scroll-reveal">Crée par deux jeunes de 18 ans, le TFC est là pour apporter une <span class="motMarquant">touche de nouveautée</span> dans ce marché volatile où les vrais memecoins se perdent. </p>
+        </div>
+        <div class="divpro3">
+        <p class="p21 scroll-reveal">Un <span class="motMarquant">retour aux sources</span> en quelque sorte : fini les agents IA, les memecoins d’influenceurs, place à des projets avec une vraie communautée.</p>
+        </div>
+
+        </div>
+    </div>
+    <div class="banniere-cont scroll-reveal">
+        <img src="img/banniereSuite3.png" alt="Bannière Suite 2" class="banniere">
+        <div class="overlay"></div>
+        <div class="divpro4">
+            <p class="p21 scroll-reveal">TFC n’est pas un feu de paille. Là où tant de meme coins naissent et disparaissent, nous construisons un <span class="motMarquant">projet solide</span>, inspiré de l’histoire et du divertissement. Nous ne sommes pas là pour suivre la tendance, <span class="motMarquant">nous sommes la tendance</span>. Et cette conquête ne fait que commencer…</p>
+        </div>
+        <div class="divpro5">
+            <p class="p21 scroll-reveal">TFC, c’est un <span class="motMarquant">mouvement</span>, <span class="motMarquant">une révolution</span>, <span class="motMarquant">une conquête sans fin</span>. Ceux qui nous rejoignent aujourd’hui ne sont pas juste des investisseurs, ils deviennent des <span class="motMarquant">légendes</span>.</p>
+        </div>
+    </div>
+
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        
+        menuHamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-menu');
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const divpro = document.querySelector('.divpro');
+            divpro.style.opacity = '0';
+            setTimeout(() => {
+                divpro.style.transition = 'opacity 1s ease-in-out';
+                divpro.style.opacity = '1';
+            }, 300);
+        });
+
+
+        const scrollElements = document.querySelectorAll(".scroll-reveal");
+
+        const scrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (el.getBoundingClientRect().top < window.innerHeight * 0.85) {
+                    el.classList.add("visible");
+                }
+            });
+        };
+
+        document.addEventListener("scroll", scrollAnimation);
+        scrollAnimation();
+    </script>
+    
+    
+    <div class="bandeau">
+        <div class="marquee">
+            <span>$TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC</span>
+            <span>$TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC</span>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bodyInfo">
+
+    <nav class="navbar">
+        <a href="#" class="logo">Informations</a> 
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Map</a></li>
+                <li><a href="tfc.html">TFC</a></li>
+                <li class="active"><a href="info.html">Informations</a></li>
+                <li><a href="../project/index.html">Jeu</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="Menu hamburger" class="menu-hamburger">
+    </nav>
+
+    <div class="navbar-overlay"></div>
+
+
+    <section class="social-media-section">
+        <div class="social-media-container">
+            <h2 class="h22">Suivez TFC partout !</h2>
+            <div class="social-links">
+                <a href="https://twitter.com/@tfc_solana" target="_blank" class="social-link">
+                    <img src="img/X-logo.jpg" alt="X">
+                    <span class="logoText">Twitter</span>
+                </a>
+                <a href="https://instagram.com/tfc.sol" target="_blank" class="social-link">
+                    <img src="img/instagram-icon.png" alt="Instagram">
+                    <span class="logoText">Instagram</span>
+                </a>
+                <a href="https://tiktok.com/@tfc.sol" target="_blank" class="social-link">
+                    <img src="img/tiktok-icon.png" alt="TikTok">
+                    <span class="logoText">TikTok</span>
+                </a>
+                <a href="https://t.me/fuysol" target="_blank" class="social-link">
+                    <img src="img/telegram-icon.png" alt="Telegram">
+                    <span class="logoText">Telegram</span>
+                </a>
+                <a href="https://youtube.com/@tfc.solana" target="_blank" class="social-link">
+                    <img src="img/youtube-icon.png" alt="Youtube">
+                    <span class="logoText">YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <header>
+
+    </header>
+
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuHamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-menu');
+        });
+        
+
+        function setupDiverseScrollAnimations() {
+
+const elementsToAnimate = document.querySelectorAll(
+  '.distribution-map, .crypto-price-container, .phraseMap, .conteneur-progression, .social-link, .contact-info, .map, .map-logo, .valeur-actuelle, .cadre-barre-progression, .info-progression'
+);
+
+
+const options = {
+  root: null, 
+  rootMargin: '0px',
+  threshold: 0.15 
+};
+
+
+const directions = ['top', 'bottom', 'left', 'right'];
+
+
+const handleIntersect = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('animate-in');
+      observer.unobserve(entry.target);
+    }
+  });
+};
+
+
+const observer = new IntersectionObserver(handleIntersect, options);
+
+
+elementsToAnimate.forEach((element, index) => {
+  let direction;
+  
+
+  if (element.classList.contains('distribution-map') || element.classList.contains('map')) {
+
+  } else if (element.classList.contains('crypto-price-container')) {
+    direction = 'top'; 
+  } else if (element.classList.contains('phraseMap')) {
+    direction = 'right'; 
+  } else if (element.classList.contains('conteneur-progression') || 
+             element.classList.contains('cadre-barre-progression')) {
+    direction = 'left';
+  } else if (element.classList.contains('social-link')) {
+
+    direction = index % 2 === 0 ? 'left' : 'right';
+  } else if (element.classList.contains('contact-info')) {
+    direction = 'bottom'; 
+  } else {
+ 
+    direction = directions[Math.floor(Math.random() * directions.length)];
+  }
+
+
+  element.classList.add('animate-prepare', `from-${direction}`);
+  
+
+  if (element.classList.contains('social-link')) {
+    element.style.setProperty('--item-index', index % 6);
+  }
+  
+
+  observer.observe(element);
+});
+}
+
+document.addEventListener('DOMContentLoaded', setupDiverseScrollAnimations);
+    </script>
+  
+  <div class="mailDiv">
+    <p><span class="mailText">tfc.crypto@gmail.com pour collab seulement</span></p>
+  </div>
+  <div class="bandeau">
+    <div class="marquee">
+        <span>$TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC</span>
+        <span>$TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC &nbsp; $TFC</span>
+    </div>
+</div>
+</body>
+</html>
