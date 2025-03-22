@@ -685,7 +685,7 @@ function App() {
               top: knight.y,
               width: knight.width,
               height: knight.height,
-              backgroundImage: 'url("../chevalier.png")',
+              backgroundImage: 'url("https://i.imgur.com/qoYX8D9_d.webp?maxwidth=760&fidelity=grand")',
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               transform: `translateY(${velocity > 0 ? 5 : 0}px)`,
